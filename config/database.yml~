@@ -1,0 +1,13 @@
+db_params = {
+  host: 'localhost',
+  dbname: 'expo',
+  port: '5433',
+  user: 'postgres',
+  password: 'demoba'
+}
+psql = PG::Connection.new(db_params)
+
+
+before { content_type 'application/json' }
+after { psql.close }
+

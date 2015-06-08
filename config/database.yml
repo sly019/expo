@@ -1,0 +1,6 @@
+host: 'localhost',
+dbname: 'expo',
+port: '5433',
+user: 'postgres',
+password: 'demoba'
+
