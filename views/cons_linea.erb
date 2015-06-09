@@ -1,7 +1,27 @@
 <div>
-    <label>Articulos </label><%= @articulos.id %>
-    <br/>
-    <label>descripcion </label><%= @linea.linea %>
-    <p><a href="/linea">Registro de líneas</a></p>
-    <p><a href="/">Menú Principal</a></p>
+	<h1>Articulos</h1>
 </div>
+
+<table>
+	<thead>
+		<tr>
+	 		 <th> id </th>         
+	 		 <th> Marca </th> 
+	 		 <th> Descripcion </th> 
+	 		 <th> Precio </th> 
+	  	</tr>
+	</thead>
+	<tbody>
+		<% @articulos.each do |dato| %>
+		  <tr>
+		  	<td><%= dato[:id] %></td>
+		  	<td><%= dato[:marca] %></td>
+		  	<td><%= dato[:descripcion] %></td>
+		  	<td><%= dato[:precio] %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+<p><a href="/linea">Registro de líneas</a></p>
+<p><a href="/">Menú Principal</a></p>

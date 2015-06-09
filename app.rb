@@ -3,16 +3,9 @@ require 'sinatra'
 require 'pg'
 require 'sequel'
 
-#db_params = {
- # host: 'localhost',
-  #dbname: 'expo',
-  #port: '5433',
-  #user: 'postgres',
-  #password: '123456'
-#}
-#Psql = PG::Connection.new(db_params)
 
-DB = Sequel.connect(:adapter=>'postgres', :host=>'localhost', :database=>'expo', :user=>'postgres', :password=>'123456')
+
+DB = Sequel.connect(:adapter=>'postgres', :host=>'localhost', :database=>'expo', :port=>'5433', :user=>'postgres', :password=>'demoba')
 # index principal
 get '/' do
   erb :index
@@ -25,23 +18,25 @@ end
 
 # guarda los productos
 post '/articulos' do
-  @articulo = DB.Articulo.new(:marca => params[:marca].upcase, :descripcion => params[:descripcion].upcase, :precio => params[:precio].upcase)
-  if !campo_vacio(params[:marca]) and !campo_vacio(params[:descripcion])
-     if @articulo.save
-        redirect "/articulos/#{@articulo.id}"
-     else
-         redirect '/articulos'
-     end
-  else
-      redirect '/index'
-  end
+	DB[:articulos].insert(marca: params[:marca],descripcion: params[:descripcion],precio: params[:precio], )
+    redirect "/"
+end
+
+
+# muestra el listado de lineas
+get '/articulos/:id' do
+  @articulos = DB[:articulos]
+  erb :cons_linea
 end
  
 
+
  # muestra los detalles del producto
-get '/articulos/:id' do
-  @articulos = Articulo.get(params[:id])
-  if @articulos
+get '/articulosaaaa/:id' do
+	@articulo = DB[:articulos]['']
+
+  #@articulos = Articulo.get(params[:id])
+  if @articulo
      erb :cons_linea
   else
       redirect '/articulos'
