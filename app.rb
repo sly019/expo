@@ -18,27 +18,41 @@ end
 
 # guarda los productos
 post '/articulos' do
-	DB[:articulos].insert(marca: params[:marca],descripcion: params[:descripcion],precio: params[:precio], )
+  DB[:articulos].insert(marca: params[:marca],descripcion: params[:descripcion],precio: params[:precio], )
     redirect "/"
 end
 
-
-# muestra el listado de lineas
+# muestra el listado de articulos
 get '/articulos/:id' do
   @articulos = DB[:articulos]
   erb :cons_linea
 end
- 
 
-
- # muestra los detalles del producto
-get '/articulosaaaa/:id' do
-	@articulo = DB[:articulos]['']
-
-  #@articulos = Articulo.get(params[:id])
-  if @articulo
-     erb :cons_linea
+# borra articulos
+get '/borraArticulo/:id' do
+  @articulos = DB[:articulos].where(:id => params[:id]).delete
+  if @articulos
+     redirect "/"
   else
-      redirect '/articulos'
+      redirect "/"
   end
 end
+
+# edita articulos
+get '/editar/:id' do
+  @articulos = DB[:articulos].where(:id => params[:id])
+  if @articulos
+     erb :editar
+  else
+      redirect "/"
+  end
+end
+
+# edita la producto
+put '/editar/:id' do
+   @articulos = DB[:articulos].where(:id => params[:id]).update(marca: params[:marca],descripcion: params[:descripcion],precio: params[:precio])
+     redirect '/articulos/all'
+  #end
+end
+
+ 

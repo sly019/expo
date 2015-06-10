@@ -52,3 +52,86 @@
 			</tbody>
 		</table>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <p>Editar el siguiente producto: </p>
+    <form action="/editar/<%= @articulos %>" method="post" accept-charset="utf-8">
+       <label>Id </label><input type="text" name="Id" placeholder= "<%= @articulos%>" id="descripcion" class="" maxlength=30>
+      <br/><br/>
+      <label>Descripcion </label><input type="text" name="descripcion" id="descripcion" placeholder= "descripcion" class="" maxlength=30>
+      <br/><br/>      
+       <input type="submit" value="Guardar"/>
+    </form>
+    <p><a href="/">Menú Principal</a></p>
+</div>
+<% @articulos.each do |dato| %>
+      <tr>
+          <td><%= dato[:id] %></td>
+          <td><%= dato[:marca] %></td>
+          <td><%= dato[:descripcion] %></td>
+          <td><%= dato[:precio] %></td>
+      </tr>
+    <% end %>
+
+
+
+
+<div>
+    <p>Editar el siguiente producto: </p>
+    <form action="/editar/<%= @articulos %>" method="post" accept-charset="utf-8">
+       <label>Id </label><input type="text" name="Id" placeholder= "<%= @articulos[:descripcion]%>" id="descripcion" class="" maxlength=30>
+      <br/><br/>
+      <label>Descripcion </label><input type="text" name="descripcion" id="descripcion" placeholder= "descripcion" class="" maxlength=30>
+      <br/><br/>      
+       <input type="submit" value="Guardar"/>
+    </form>
+    <p><a href="/">Menú Principal</a></p>
+</div>
+<% @articulos.each do |dato| %>
+      <tr>
+          <td><%= dato[:id] %></td>
+          <td><%= dato[:marca] %></td>
+          <td><%= dato[:descripcion] %></td>
+          <td><%= dato[:precio] %></td>
+      </tr>
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <p>Editar el siguiente producto: </p>
+    <form action="/editar/<%= @articulos %>" method="post" accept-charset="utf-8">
+    </div>
+    <% @articulos.each do |dato| %>
+       <label>Marca: </label><input type="text" name="marca" placeholder= "<%= dato[:marca] %>" id="marca" class="" maxlength=15>
+      <br/><br/>
+      <label>Descripcion: </label><input type="text" name="descripcion" id="descripcion" placeholder= "<%= dato[:descripcion] %>" class="" maxlength=30>
+      <br/><br/>      
+      <label>Precio: </label><input type="text" name="precio" id="precio" placeholder= "<%= dato[:precio] %>" class="" maxlength=30>
+      <br/><br/>      
+    <% end %>       
+       <input type="submit" value="Guardar"/>
+    </form>
+    <p><a href="/">Menú Principal</a></p>
+
+
+
+

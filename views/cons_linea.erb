@@ -5,10 +5,11 @@
 <table>
 	<thead>
 		<tr>
-	 		 <th> id </th>         
+	 		 <th> Id </th>         
 	 		 <th> Marca </th> 
 	 		 <th> Descripcion </th> 
 	 		 <th> Precio </th> 
+	 		 <th> Acción </th>
 	  	</tr>
 	</thead>
 	<tbody>
@@ -18,10 +19,11 @@
 		  	<td><%= dato[:marca] %></td>
 		  	<td><%= dato[:descripcion] %></td>
 		  	<td><%= dato[:precio] %></td>
+		  	<td><p><a href="/borraArticulo/<%= dato[:id]%>">Eliminar</a></p></td>
+		  	<td><p><a href="/editar/<%= dato[:id]%>">Editar</a></p></td>
 		  </tr>
 		<% end %>
 	</tbody>
 </table>
 
-<p><a href="/linea">Registro de líneas</a></p>
 <p><a href="/">Menú Principal</a></p>
