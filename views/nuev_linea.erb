@@ -1,12 +1,35 @@
-<div>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+
+<div class="card-panel light-blue lighten-1"><h3 class="center-align">Ingreso de nuevos articulos</h3></div>
+
+<div >
     <form action="/articulos" method="post" accept-charset="utf-8">
-      <label>Marca </label><input type="text" name="marca" id="marca" class="campo_entrada" maxlength=15
-      <br/><br/><br/>
-      <label>Descripcion </label><input type="text" name="descripcion" id="descripcion" class="campo_entrada" maxlength=30>
-      <br/><br/>
-       <label>Precio </label><input type="text" name="precio" id="precio" class="campo_entrada" maxlength=30>
-		<br/>   <br/>  
-      <input type="submit" value="Guardar"/>
+    <div class="row">
+      <div class="input-field col s12">
+        <label> Marca: </label> <br>
+      </div>    
+      <div class="input-field col s3">
+        <input type="text" name="marca"  class="validate" maxlength=15>      
+      </div>    
+      <div class="input-field col s12">
+        <label>Descripcion:</label><br>
+      </div>    
+      <div class="input-field col s3">
+        <input type="text" name="descripcion" id="descripcion" class="validate" maxlength=30>
+      </div>    
+      <div class="input-field col s12">
+        <label>Precio:</label><br>
+      </div>    
+      <div class="input-field col s3">
+        <input type="text" name="precio" id="precio" class="validate" maxlength=30>
+      </div>    
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
+    
+  </button><br><br>
     </form>
-    <p><a href="/">Menú Principal</a></p>
+    <a class="waves-effect waves-light btn" href="/">Regresar </a></a>
 </div>
+
